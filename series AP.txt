@@ -1,0 +1,31 @@
+class Solution {
+    public static int nthTermOfAP(int a1, int a2, int n) {
+          int d = a2 - a1;
+        
+        int nthTerm = a1 + (n - 1) * d;
+        
+        return nthTerm;
+    }
+    
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+
+        System.out.print("Enter the first term (a1): ");
+        int a1 = sc.nextInt();
+        
+
+        System.out.print("Enter the second term (a2): ");
+        int a2 = sc.nextInt();
+        
+    
+        System.out.print("Enter the value of n: ");
+        int n = sc.nextInt();
+        
+    
+        int res = nthTermOfAP(a1, a2, n);
+        System.out.println("The nth term of the arithmetic series is: " + res);
+        
+    
+    }
+}

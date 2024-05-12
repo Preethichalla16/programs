@@ -1,0 +1,27 @@
+class Solution {
+    int greatestOfThree(int A, int B, int C) {
+        int max = A; 
+        
+        if (B > max) {
+            max = B; 
+        }
+        
+        if (C > max) {
+            max = C; 
+        }
+        
+        return max;
+    }
+    
+    public static void main(String[] args) {
+        Solution s = new Solution();
+        Scanner sc = new Scanner(System.in);
+        int p = sc.nextInt();
+        int q = sc.nextInt();
+        int r = sc.nextInt();
+        
+        int greatest = s.greatestOfThree(p, q, r);
+        System.out.println("The greatest number among " + p + ", " + q + ", and " + r + " is: " + greatest);
+    }
+}
+

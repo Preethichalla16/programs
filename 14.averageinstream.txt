@@ -1,0 +1,28 @@
+class Solution {
+    
+    float[] streamAvg(int[] arr, int n) {
+        if (n == 0) {
+            return new float[0];
+        }
+        
+        float[] averages = new float[n];
+        float sum = 0;
+        
+        for (int i = 0; i < n; i++) {
+            sum += arr[i];
+            averages[i] = sum / (i + 1);
+        }
+        
+        return averages;
+    }
+    
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int[] arr = {2, 4, 6, 8, 10};
+        int n = arr.length;
+        float[] avg = solution.streamAvg(arr, n);
+        for (float value : avg) {
+            System.out.println(value);
+        }
+    }
+}

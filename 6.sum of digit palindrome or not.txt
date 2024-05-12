@@ -1,0 +1,39 @@
+class Solution {
+    public static int isDigitSumPalindrome(int n) {
+        int sum = 0;
+        while (n != 0) {
+            sum += n % 10;
+            n /= 10;
+        }
+        return sum;
+    }
+    
+    // Function to check if a number is a palindrome
+    public static boolean isPalindrome(int num) {
+        int reversed = 0, original = num;
+        while (num != 0) {
+            int digit = num % 10;
+            reversed = reversed * 10 + digit;
+            num /= 10;
+        }
+        return original == reversed;
+    }
+    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int n = scanner.nextInt();
+        
+        int sumOfDigits = isDigitSumPalindrome(n);
+        
+        boolean isPalindrome = isPalindrome(sumOfDigits);
+        
+        if (isPalindrome) {
+            System.out.println("The digit sum of " + n + " is a palindrome number.");
+        } else {
+            System.out.println("The digit sum of " + n + " is not a palindrome number.");
+        }
+        
+        scanner.close();
+    }
+}

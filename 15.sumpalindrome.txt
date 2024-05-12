@@ -1,0 +1,46 @@
+class Solution {
+    
+    static boolean isPalindrome(long num) {
+        long reversed = 0;
+        long originalNum = num;
+        
+        while (num != 0) {
+            long digit = num % 10;
+            reversed = reversed * 10 + digit;
+            num /= 10;
+        }
+        
+        return originalNum == reversed;
+    }
+    
+    static long reverseAdd(long n) {
+        long iterations = 0;
+        
+        while (!isPalindrome(n) && iterations < 5) {
+            long reversed = 0;
+            long temp = n;
+            while (temp != 0) {
+                long digit = temp % 10;
+                reversed = reversed * 10 + digit;
+                temp /= 10;
+            }
+            n += reversed;
+            iterations++;
+        }
+        
+        return n;
+    }
+    
+    static long isSumPalindrome(long n) {
+        long result = reverseAdd(n);
+        if (isPalindrome(result))
+            return result;
+        else
+            return -1; // Indicates that the sum is not palindrome within 5 iterations
+    }
+    
+    public static void main(String[] args) {
+        long number = 12345;
+        System.out.println("Sum palindrome: " + isSumPalindrome(number));
+    }
+}

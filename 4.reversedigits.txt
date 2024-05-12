@@ -1,0 +1,27 @@
+class Solution
+{
+    public static long reverse_digit(long n)
+    {
+long reversed = 0;
+        while (n != 0) {
+            long digit = n % 10;
+            reversed = reversed * 10 + digit;
+            n /= 10;
+        }
+        return reversed;
+    }
+    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the number N: ");
+        long N = scanner.nextLong();
+        
+        // Call the function to reverse the digits of N
+        long reversedNumber = reverse_digit(N);
+        
+        // Display the result
+        System.out.println("Reversed number: " + reversedNumber);
+        
+        scanner.close();
+    }
+}

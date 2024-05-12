@@ -1,0 +1,32 @@
+class Solution {
+    static long factorial(long n) {
+        if (n == 0 || n == 1) {
+            return 1;
+        } else {
+            return n * factorial(n - 1);
+        }
+    }
+
+    static long nPr(long n, long r) {
+        if (n < r) {
+            return -1; 
+        }
+        return factorial(n) / factorial(n - r);
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the value of n: ");
+        long n = scanner.nextLong();
+        System.out.print("Enter the value of r: ");
+        long r = scanner.nextLong();
+
+        long result = nPr(n, r);
+        if (result == -1) {
+            System.out.println("Invalid input: n should be greater than or equal to r.");
+        } else {
+            System.out.println("nPr = " + result);
+        }
+        scanner.close();
+    }
+}
